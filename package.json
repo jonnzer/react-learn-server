@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "0.0.1",
+  "description": "as backend work for react-learn",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonnzer/react-learn-server.git"
+  },
+  "keywords": [
+    "Node"
+  ],
+  "author": "Jonnzer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonnzer/react-learn-server/issues"
+  },
+  "homepage": "https://github.com/jonnzer/react-learn-server#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
