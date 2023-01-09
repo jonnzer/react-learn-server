@@ -1,5 +1,7 @@
 
-const http = require('http')
+const express = require('express')
+
+const app = express()
 
 const port = 3002
 
@@ -24,13 +26,17 @@ let notes = [
     }
   ]
 
-const app = http.createServer((request, response) => {
-    response.writeHead(200, { 'Content-Type': 'application/json' })
-    response.end(JSON.stringify(notes))
+app.get('/', (req, res) => {
+  res.send('<h1>Hello world!</h1')
 })
 
-app.listen(port)
+app.get('/api/notes', (req, res) => {
+  res.json(notes) // 自动转换 response的content-type
+})
 
-console.log(`Server running on port ${port}`)
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
+})
+
 
 
