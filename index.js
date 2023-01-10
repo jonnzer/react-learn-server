@@ -2,7 +2,7 @@
 const express = require('express')
 
 const app = express()
-
+app.use(express.json()) // 如果没有 json-parser，body 属性将是未定义的。json-parser 的功能是将请求的 JSON 数据转化为 JavaScript 对象，然后在调用路由处理程序之前将其附加到 request 对象的 body 属性。
 const port = 3002
 
 let notes = [
@@ -51,6 +51,31 @@ app.delete('/api/notes/:id', (req, res) => {
   const id = Number(req.params.id)
   notes = notes.filter(note => note.id !== id)
   res.status(204).end() // 204 请求成功 无返回内容
+})
+
+const generateId = () => {
+  const maxId = notes.length > 0
+    ? Math.max(...notes.map(n => n.id))
+    : 0
+  return maxId + 1
+}
+
+// add new note
+app.post('/api/notes', (req, res) => {
+  const body = req.body
+  if (!body.content) {
+    return res.status(400).json({
+      error: 'content missing'
+    })
+  }
+  const note = {
+    content: body.content,
+    important: body.important || false, // default value setting
+    date: new Date(), // use server time
+    id: generateId()
+  }
+  notes = notes.concat(note)
+  res.json(note)
 })
 
 app.listen(port, () => {
