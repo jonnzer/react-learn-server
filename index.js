@@ -33,7 +33,8 @@ const unknownEndpoint = (req, res) => {
   })
 }
 
-app.use(unknownEndpoint)
+const cors = require('cors')
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello world!</h1')
@@ -86,7 +87,7 @@ app.post('/api/notes', (req, res) => {
   notes = notes.concat(note)
   res.json(note)
 })
-
+app.use(unknownEndpoint)
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
 })

@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/jonnzer/react-learn-server#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "cors": "^2.8.5",
+    "express": "^3.4.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
