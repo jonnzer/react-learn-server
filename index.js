@@ -26,6 +26,15 @@ let notes = [
     }
   ]
 
+// middleware 中间件的使用
+const unknownEndpoint = (req, res) => {
+  res.status(404).send({
+    error: 'unknown endpoint'
+  })
+}
+
+app.use(unknownEndpoint)
+
 app.get('/', (req, res) => {
   res.send('<h1>Hello world!</h1')
 })
