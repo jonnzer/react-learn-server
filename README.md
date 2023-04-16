@@ -22,6 +22,7 @@ mongodb-memory-server：模拟数据库
 开发准备：
 package.json testEnvironment:true 设置测试环境为node环境
 扩展名.test.js来命名我们的测试文件
+supertest：测试http请求 结合jest使用
 
 一些语法：
 expect 包装结果
