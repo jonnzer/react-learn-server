@@ -27,7 +27,17 @@ supertest：测试http请求 结合jest使用
 一些语法：
 expect 包装结果
 toBe 匹配
-desscribe 包装测试用例 
+desscribe 包装测试用例
+
+生命周期：
+afterAll 测试执行完毕
+beforeEach 每个测试用例执行前
+
+对指定文件测试：
+npm test -- filePath
+
+对指定测试用例测试：
+npm test -- -t '测试用例名'
 
 ### 设置环境变量
 NODE_ENV 需安装 cross-env
