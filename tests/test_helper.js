@@ -1,30 +1,38 @@
 const Note = require('../models/note')
+const User = require('../models/user')
 
 const initialNotes = [
   {
     content: 'HTML is easy',
-    date: new Date(),
     important: false
   },
   {
-    content: 'Browser can execute only Javascript',
-    date: new Date(),
+    content: 'Browser can execute only JavaScript',
     important: true
   }
 ]
 
-const nonExistingId = async () => { // 用来创建一个不属于数据库中任何笔记对象的数据库对象ID
-  const note = new Note({ content: 'willremovethissoon', date: new Date() })
+const nonExistingId = async () => {
+  const note = new Note({ content: 'willremovethissoon' })
   await note.save()
   await note.remove()
+
   return note._id.toString()
 }
 
-const notesInDb = async () => { // 检查存储在数据库中的笔记。包含初始数据库状态的initialNotes数组也在该模块中。
+const notesInDb = async () => {
   const notes = await Note.find({})
   return notes.map(note => note.toJSON())
 }
 
+const usersInDb = async () => {
+  const users = await User.find({})
+  return users.map(u => u.toJSON())
+}
+
 module.exports = {
-  initialNotes, nonExistingId, notesInDb
+  initialNotes,
+  nonExistingId,
+  notesInDb,
+  usersInDb,
 }

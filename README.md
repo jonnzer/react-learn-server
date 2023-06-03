@@ -5,6 +5,9 @@ server by Node ，work for react-learn project
 
 路由器对象:
 一个路由器对象是一个孤立的中间件和路由实例。你可以把它看作是一个 "小型应用"，只能够执行中间件和路由功能。每个Express应用都有一个内置的应用路由器。
+router.get('/')
+router.post('/')
+区别: get请求是从服务器获取数据，post请求是向服务器传送数据
 
 ### Node 的观察更新工具 nodemon
 用于测试或自动重启**服务器**应用
@@ -41,3 +44,9 @@ npm test -- -t '测试用例名'
 
 ### 设置环境变量
 NODE_ENV 需安装 cross-env
+
+mongodb 文档型数据库
+- 比如user和note的两个模块的设计，它是设计为note存储在user里，并且models的note会关联user，user会关联note。
+
+### 密码加密
+bcrypt 用于加密密码，数据库中存储未加密的纯文本密码是不明智的!
