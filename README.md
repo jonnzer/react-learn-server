@@ -50,3 +50,10 @@ mongodb 文档型数据库
 
 ### 密码加密
 bcrypt 用于加密密码，数据库中存储未加密的纯文本密码是不明智的!
+
+testMongodb link: https://cloud.mongodb.com/v2/63fe25b408ccf83793d54619#/metrics/replicaSet/6416941283d7ca6b085469ab/explorer/test
+
+### jsonwebtoken
+允许我们生成JSON web tokens
+
+### 无状态通信和服务器端通话
